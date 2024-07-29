@@ -1,0 +1,30 @@
+{
+  "name": "lilspirit.info",
+  "version": "1.0.0",
+  "description": "Node js express app to run lilspirit.info website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spirit-x64/lilspirit.info.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "html",
+    "css",
+    "js",
+    "javascript"
+  ],
+  "author": "Spirit <spirit@programmer.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spirit-x64/lilspirit.info/issues"
+  },
+  "homepage": "https://github.com/spirit-x64/lilspirit.info#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
