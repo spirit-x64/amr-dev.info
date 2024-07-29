@@ -1,0 +1,40 @@
+body {
+  background: #121221;
+  color: #f8f8f2;
+  font-family: Courier New, monospace;
+  margin: 0;
+}
+
+.output {
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+.terminal {
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.prompt {
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.cursor {
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
