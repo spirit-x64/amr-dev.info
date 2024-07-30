@@ -3,7 +3,7 @@ const CURSOR = '|'
 const LINE_OUTPUT_DELAY = 100 //ms
 const CHAR_OUTPUT_DELAY = 50
 const SEPERATOR = ", "
-const commands = ["contact", "projects"]
+const commands = ["help", "contact", "projects"]
 
 const help = document.querySelector('.help');
 const run = document.querySelector('.run');
@@ -14,7 +14,7 @@ function handleCommand(cmd, container, callback) {
   container.querySelector(".command").textContent = "" // clear command
 
   switch (cmd) {
-    case "lilspirit":
+    case "help":
       typeWriter(container.querySelector(".command"), "lilspirit.info --help", CHAR_OUTPUT_DELAY, () => {
         displayOutput(container.querySelector(".output"), `  ______       _       _
  / _____)     (_)     (_)  _
@@ -89,5 +89,5 @@ function displayOutput(element, output, callback) {
 help.querySelector(".prompt").textContent = PROMPT;
 help.querySelector(".cursor").textContent = CURSOR;
 
-handleCommand("lilspirit", help, prepareRun)
+handleCommand("help", help, prepareRun)
 
