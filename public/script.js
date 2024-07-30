@@ -3,7 +3,7 @@ const CURSOR = '|'
 const LINE_OUTPUT_DELAY = 100 //ms
 const CHAR_OUTPUT_DELAY = 50
 const SEPERATOR = ", "
-const commands = ["help", "contact", "projects"]
+const commands = ["help", "contact", "projects", "scripts", "tech-stack"]
 
 const help = document.querySelector('.help');
 const run = document.querySelector('.run');
