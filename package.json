@@ -4,6 +4,7 @@
   "description": "Node js express app to run lilspirit.info website",
   "main": "index.js",
   "scripts": {
+    "start": "npm ci; node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
