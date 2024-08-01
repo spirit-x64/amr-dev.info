@@ -59,18 +59,18 @@ function prepareRun() {
   run.querySelector(".cursor").textContent = CURSOR
 }
 
-function typeWriter(element, text, speed, callback) {
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
-    } else if (callback) {
-      (callback())
+function typeWriter(element, text, speed) {
+  return new Promise((resolve, reject) => {
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else resolve()
     }
-  }
-  type();
+    type();
+  })
 }
 
 // display output with delay
