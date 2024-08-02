@@ -108,6 +108,7 @@ async function handleCommand(cmd) {
   commandsElement.style.padding = "10px"
   for (const [index, [key]] of Array.from(commands.entries()).entries()) {
     const cmd = document.createElement("span")
+    cmd.classList.add("pressable")
     cmd.textContent = key
     cmd.onclick = () => handleCommand(key)
     commandsElement.appendChild(cmd)
