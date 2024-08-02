@@ -3,6 +3,9 @@ body {
   color: #f8f8f2;
   font-family: Courier New, monospace;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
 }
 
@@ -12,8 +15,12 @@ body {
 }
 
 .terminal {
+  min-height: 95vh;
+  min-width: 95vw;
   padding: 1rem;
   box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .prompt {
