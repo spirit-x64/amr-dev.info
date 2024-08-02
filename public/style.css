@@ -17,7 +17,7 @@ body {
 .terminal {
   min-height: 95vh;
   min-width: 95vw;
-  padding: 1rem;
+  padding: 1.2rem;
   border: 2px solid #223;
   box-sizing: border-box;
   border-radius: 8px;
