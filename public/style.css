@@ -31,7 +31,7 @@ body {
 
 .cursor {
   background-color: #FFF;
-  animation: blink 0.7s infinite;
+  animation: blink 0.5s infinite;
 }
 
 @keyframes blink {
