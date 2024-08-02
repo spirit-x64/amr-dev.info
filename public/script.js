@@ -12,9 +12,6 @@ const LINE_OUTPUT_DELAY = 100 //ms
 const CHAR_OUTPUT_DELAY = 50
 const SEPERATOR = ", "
 
-const command = document.querySelector(".run .command");
-const output = document.querySelector(".run .output");
-
 const commands = new Map();
 commands.set("contact", () => { });
 commands.set("projects", () => { });
@@ -73,8 +70,8 @@ class CharAnimator extends Animator {
   }
 }
 
-const commandAnimator = new CharAnimator(command, CHAR_OUTPUT_DELAY)
-const outputAnimator = new LineAnimator(output, LINE_OUTPUT_DELAY)
+const commandAnimator = new CharAnimator(document.querySelector(".run .command"), CHAR_OUTPUT_DELAY)
+const outputAnimator = new VersatileAnimator(document.querySelector(".run .output"), LINE_OUTPUT_DELAY)
 
 async function handleCommand(cmd) {
   commandAnimator.clear()
