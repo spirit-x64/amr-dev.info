@@ -25,16 +25,19 @@ body {
 }
 
 .prompt-user {
+  font-weight: bold;
   font-size: 1.2rem;
   white-space: nowrap;
   color: #a2e22e;
 }
 
 .working-dir {
+  font-weight: bold;
   color: #f92672
 }
 
 .prompt-sign {
+  font-weight: bold;
   color: #f2777a;
 }
 
