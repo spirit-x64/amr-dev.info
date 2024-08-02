@@ -6,7 +6,9 @@ const ASCII_ART = `  ______       _       _
 (______/|  __/|_|_|   |_| \\___)
         |_|\n `
 const HELP_MESSAGE = "commands: (click to run)"
-const PROMPT = "\nspirit@game-developer:~$ "
+const PROMPT_USER = "spirit@game-developer:"
+const WORKING_DIR = "~"
+const PROMPT_SIGN = "$"
 const CURSOR = "|"
 const LINE_OUTPUT_DELAY = 100 //ms
 const CHAR_OUTPUT_DELAY = 50
@@ -91,7 +93,9 @@ async function handleCommand(cmd) {
 
 // print help command
 (async () => {
-  document.querySelector(".help .prompt").textContent = PROMPT;
+  document.querySelector(".help .prompt-user").textContent = PROMPT_USER;
+  document.querySelector(".help .working-dir").textContent = WORKING_DIR;
+  document.querySelector(".help .prompt-sign").textContent = PROMPT_SIGN;
   document.querySelector(".help .cursor").textContent = CURSOR;
 
   const helpCommandAnimator = new CharAnimator(document.querySelector(".help .command"), CHAR_OUTPUT_DELAY)
@@ -115,6 +119,8 @@ async function handleCommand(cmd) {
   document.querySelector(".help .output").appendChild(commandsElement)
 
   document.querySelector(".help .cursor").remove()
-  document.querySelector(".run .prompt").textContent = PROMPT
+  document.querySelector(".run .prompt-user").textContent = PROMPT_USER;
+  document.querySelector(".run .working-dir").textContent = WORKING_DIR;
+  document.querySelector(".run .prompt-sign").textContent = PROMPT_SIGN;
   document.querySelector(".run .cursor").textContent = CURSOR
 })()
