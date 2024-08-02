@@ -29,6 +29,14 @@ body {
   white-space: nowrap;
 }
 
+.pressable {
+  color: #0FF;
+}
+
+.pressable:hover {
+  cursor: pointer;
+}
+
 .cursor {
   background-color: #FFF;
   animation: blink 0.5s infinite;
