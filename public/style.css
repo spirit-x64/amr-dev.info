@@ -1,6 +1,6 @@
 body {
-  background: #121221;
-  color: #f8f8f2;
+  background: #13131f;
+  color: #FFF;
   font-family: Courier New, monospace;
   margin: 0;
   display: flex;
@@ -27,10 +27,19 @@ body {
 .prompt-user {
   font-size: 1.2rem;
   white-space: nowrap;
+  color: #a2e22e;
+}
+
+.working-dir {
+  color: #f92672
+}
+
+.prompt-sign {
+  color: #f2777a;
 }
 
 .pressable {
-  color: #0FF;
+  color: #f2777a;
 }
 
 .pressable:hover {
