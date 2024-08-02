@@ -3,6 +3,7 @@ body {
   color: #f8f8f2;
   font-family: Courier New, monospace;
   margin: 0;
+  min-height: 100vh;
 }
 
 .output {
@@ -11,8 +12,6 @@ body {
 }
 
 .terminal {
-  width: 100vw;
-  height: 100vh;
   padding: 1rem;
   box-sizing: border-box;
 }
