@@ -12,7 +12,7 @@ const PROMPT_SIGN = "$"
 const CURSOR = "|" // dosent matter in the current style
 const LINE_OUTPUT_DELAY = 100 //ms
 const CHAR_OUTPUT_DELAY = 50
-const SEPERATOR = ", "
+const SEPERATOR = " | "
 
 const commands = new Map();
 commands.set("contact", () => { });
