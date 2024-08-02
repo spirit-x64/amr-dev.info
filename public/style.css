@@ -30,6 +30,7 @@ body {
 }
 
 .cursor {
+  background-color: #FFF;
   animation: blink 0.7s infinite;
 }
 
