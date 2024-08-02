@@ -42,11 +42,16 @@ body {
 }
 
 .pressable {
+  text-shadow: 0 0 10px #f2777a, 0 0 20px #f2777a;
   color: #f2777a;
 }
 
 .pressable:hover {
   cursor: pointer;
+}
+
+.command {
+  text-shadow: 0 0 10px #FFF;
 }
 
 .cursor {
