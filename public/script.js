@@ -37,18 +37,20 @@ class Animator {
   }
 }
 
-class LineAnimator extends Animator {
+class VersatileAnimator extends Animator {
   constructor(targetElement, defaultDelay) {
     super(targetElement, defaultDelay);
   }
-  async print(text, delay) {
+  async defaultPrintLine(line) {
+    const lineElement = document.createElement("div")
+    lineElement.textContent = line
+    this.targetElement.appendChild(lineElement)
+  }
+  async print(text, delay, printLineFunction) {
     this.text = text
     const outputLines = text.split("\n")
     while (this.text == text && this.pointer < outputLines.length) {
-      const line = outputLines[this.pointer]
-      const lineElement = document.createElement("div")
-      lineElement.textContent = line
-      this.targetElement.appendChild(lineElement)
+      printLineFunction ? printLineFunction() : this.defaultPrintLine(outputLines[this.pointer])
       this.pointer++
       await sleep(delay ?? this.defaultDelay)
     }
@@ -79,9 +81,12 @@ async function handleCommand(cmd) {
 
   await commandAnimator.print(cmd)
 
-  const text = commands.get(cmd)()
-  if (text && typeof text == "string") outputAnimator.print(text)
-  else outputAnimator.print(`Couldn"t find the command ${cmd}`)
+  const output = commands.get(cmd)
+  if (typeof output == "string") {
+    outputAnimator.print(output)
+  } else {
+    output()
+  }
 }
 
 // print help command
@@ -90,7 +95,7 @@ async function handleCommand(cmd) {
   document.querySelector(".help .cursor").textContent = CURSOR;
 
   const helpCommandAnimator = new CharAnimator(document.querySelector(".help .command"), CHAR_OUTPUT_DELAY)
-  const helpOutputAnimator = new LineAnimator(document.querySelector(".help .output"), LINE_OUTPUT_DELAY)
+  const helpOutputAnimator = new VersatileAnimator(document.querySelector(".help .output"), LINE_OUTPUT_DELAY)
 
   await helpCommandAnimator.print("lilspirit.info --help")
   await helpOutputAnimator.print(ASCII_ART + "\n\n" + HELP_MESSAGE)
