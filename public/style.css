@@ -42,7 +42,7 @@ body {
 }
 
 .pressable {
-  text-shadow: 0 0 10px #f2777a, 0 0 20px #f2777a;
+  text-shadow: 0 0 10px #f2777a;
   color: #f2777a;
 }
 
