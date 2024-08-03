@@ -56,6 +56,10 @@ body {
   text-shadow: 0 0 10px #FFF;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .cursor {
   background-color: #FFF;
   animation: blink 0.5s infinite;

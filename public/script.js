@@ -6,9 +6,6 @@ const ASCII_ART = `  ______       _       _
 (______/|  __/|_|_|   |_| \\___)
         |_|\n `
 const HELP_MESSAGE = "commands: (click to run)"
-const PROMPT_USER = "spirit@game-developer:"
-const WORKING_DIR = "~"
-const PROMPT_SIGN = "$"
 const CURSOR = "|" // dosent matter in the current style
 const LINE_OUTPUT_DELAY = 100 //ms
 const CHAR_OUTPUT_DELAY = 50
@@ -93,11 +90,6 @@ async function handleCommand(cmd) {
 
 // print help command
 (async () => {
-  document.querySelector(".help .prompt-user").textContent = PROMPT_USER;
-  document.querySelector(".help .working-dir").textContent = WORKING_DIR;
-  document.querySelector(".help .prompt-sign").textContent = PROMPT_SIGN;
-  document.querySelector(".help .cursor").textContent = CURSOR;
-
   const helpCommandAnimator = new CharAnimator(document.querySelector(".help .command"), CHAR_OUTPUT_DELAY)
   const helpOutputAnimator = new VersatileAnimator(document.querySelector(".help .output"), LINE_OUTPUT_DELAY)
 
@@ -114,14 +106,14 @@ async function handleCommand(cmd) {
     commandsElement.appendChild(cmd)
 
     const seperator = document.createElement("span")
-    seperator.textContent = index + 1 >= commands.size ? " \n " : SEPERATOR
-    commandsElement.appendChild(seperator)
-  }
+      seperator.textContent = index + 1 >= commands.size ? " \n " : SEPERATOR
+      commandsElement.appendChild(seperator)
+    }
   document.querySelector(".help .output").appendChild(commandsElement)
 
-  document.querySelector(".help .cursor").remove()
-  document.querySelector(".run .prompt-user").textContent = PROMPT_USER;
-  document.querySelector(".run .working-dir").textContent = WORKING_DIR;
-  document.querySelector(".run .prompt-sign").textContent = PROMPT_SIGN;
-  document.querySelector(".run .cursor").textContent = CURSOR
+  document.querySelector(".help .cursor").classList.add("hidden")
+  document.querySelector(".run .prompt-user").classList.remove("hidden");
+  document.querySelector(".run .working-dir").classList.remove("hidden");
+  document.querySelector(".run .prompt-sign").classList.remove("hidden");
+  document.querySelector(".run .cursor").classList.remove("hidden")
 })()
