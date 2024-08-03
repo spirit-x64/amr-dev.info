@@ -26,11 +26,11 @@ class Animator {
     this.targetElement = targetElement;
     this.defaultDelay = defaultDelay;
     this.pointer = 0;
-    this.text = ""
+    this.content = ""
   }
   async clear() {
     this.pointer = 0;
-    this.text = "";
+    this.content = "";
     this.targetElement.replaceChildren();
     this.targetElement.textContent = "";
   }
@@ -45,10 +45,10 @@ class VersatileAnimator extends Animator {
     lineElement.textContent = line
     this.targetElement.appendChild(lineElement)
   }
-  async print(text, options = {}) {
-    this.text = text
-    const outputLines = text.split("\n")
-    while (this.same(this.text, text) && this.pointer < outputLines.length) {
+  async print(content, options = {}) {
+    this.content = content
+    const outputLines = typeof content == "string" ? content.split("\n") : content
+    while (this.same(this.content, content) && this.pointer < outputLines.length) {
       options.printLine ? options.printLine(outputLines[this.pointer], this.pointer) : this.defaultPrintLine(outputLines[this.pointer])
       this.pointer++
       await sleep(options.delay ?? this.defaultDelay)
@@ -68,10 +68,10 @@ class CharAnimator extends Animator {
   constructor(targetElement, defaultDelay) {
     super(targetElement, defaultDelay);
   }
-  async print(text, options = {}) {
-    this.text = text
-    while (this.text == text && this.pointer < text.length) {
-      const char = this.text.charAt(this.pointer)
+  async print(content, options = {}) {
+    this.content = content
+    while (this.content == content && this.pointer < content.length) {
+      const char = this.content.charAt(this.pointer)
       this.targetElement.textContent += char
       this.pointer++
       await sleep(options.delay ?? this.defaultDelay)
