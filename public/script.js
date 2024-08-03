@@ -106,18 +106,20 @@ async function handleCommand(cmd) {
 
   const commandsElement = document.createElement("div")
   commandsElement.style.padding = "10px"
-  for (const [index, [key]] of Array.from(commands.entries()).entries()) {
-    const cmd = document.createElement("span")
-    cmd.classList.add("pressable")
-    cmd.textContent = key
-    cmd.onclick = () => handleCommand(key)
-    commandsElement.appendChild(cmd)
+  document.querySelector(".help .output").appendChild(commandsElement)
+  await helpOutputAnimator.print(Array.from(commands.keys()), {
+    printLine: (key, i) => {
+      const cmd = document.createElement("span")
+      cmd.classList.add("pressable")
+      cmd.textContent = key
+      cmd.onclick = () => handleCommand(key)
+      commandsElement.appendChild(cmd)
 
-    const seperator = document.createElement("span")
-      seperator.textContent = index + 1 >= commands.size ? " \n " : SEPERATOR
+      const seperator = document.createElement("span")
+      seperator.textContent = i + 1 >= commands.size ? " \n " : SEPERATOR
       commandsElement.appendChild(seperator)
     }
-  document.querySelector(".help .output").appendChild(commandsElement)
+  })
 
   document.querySelector(".help .cursor").classList.add("hidden")
   document.querySelector(".run .prompt-user").classList.remove("hidden");
