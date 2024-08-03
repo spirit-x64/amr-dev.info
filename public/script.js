@@ -45,13 +45,13 @@ class VersatileAnimator extends Animator {
     lineElement.textContent = line
     this.targetElement.appendChild(lineElement)
   }
-  async print(text, delay, printLineFunction) {
+  async print(text, options = {}) {
     this.text = text
     const outputLines = text.split("\n")
     while (this.text == text && this.pointer < outputLines.length) {
-      printLineFunction ? printLineFunction() : this.defaultPrintLine(outputLines[this.pointer])
+      options.printLine ? options.printLine(outputLines[this.pointer], this.pointer) : this.defaultPrintLine(outputLines[this.pointer])
       this.pointer++
-      await sleep(delay ?? this.defaultDelay)
+      await sleep(options.delay ?? this.defaultDelay)
     }
   }
 }
@@ -60,13 +60,13 @@ class CharAnimator extends Animator {
   constructor(targetElement, defaultDelay) {
     super(targetElement, defaultDelay);
   }
-  async print(text, delay) {
+  async print(text, options = {}) {
     this.text = text
     while (this.text == text && this.pointer < text.length) {
       const char = this.text.charAt(this.pointer)
       this.targetElement.textContent += char
       this.pointer++
-      await sleep(delay ?? this.defaultDelay)
+      await sleep(options.delay ?? this.defaultDelay)
     }
   }
 }
