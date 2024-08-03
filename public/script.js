@@ -48,11 +48,19 @@ class VersatileAnimator extends Animator {
   async print(text, options = {}) {
     this.text = text
     const outputLines = text.split("\n")
-    while (this.text == text && this.pointer < outputLines.length) {
+    while (this.same(this.text, text) && this.pointer < outputLines.length) {
       options.printLine ? options.printLine(outputLines[this.pointer], this.pointer) : this.defaultPrintLine(outputLines[this.pointer])
       this.pointer++
       await sleep(options.delay ?? this.defaultDelay)
     }
+    this.pointer = 0
+  }
+  same(x, y) {
+    if (Array.isArray(x)) {
+      if (Array.isArray(y)) return x.every((v, i) => this.same(v, y[i]));
+      else return false
+    }
+    return x == y
   }
 }
 
