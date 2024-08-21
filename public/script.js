@@ -34,6 +34,10 @@ class Animator {
     this.targetElement.replaceChildren();
     this.targetElement.textContent = "";
   }
+resetPointer() {
+    this.pointer = 0;
+    this.content = "";
+  }
 }
 
 class VersatileAnimator extends Animator {
@@ -53,7 +57,6 @@ class VersatileAnimator extends Animator {
       this.pointer++
       await sleep(options.delay ?? this.defaultDelay)
     }
-    this.pointer = 0
   }
   same(x, y) {
     if (Array.isArray(x)) {
@@ -100,6 +103,7 @@ async function handleCommand(cmd) {
 
   await helpCommandAnimator.print("lilspirit.info --help")
   await helpOutputAnimator.print(ASCII_ART + "\n\n" + HELP_MESSAGE)
+  helpOutputAnimator.resetPointer()
 
   const commandsElement = document.createElement("div")
   commandsElement.style.padding = "10px"
