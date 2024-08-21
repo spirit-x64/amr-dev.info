@@ -34,7 +34,7 @@ class Animator {
     this.targetElement.replaceChildren();
     this.targetElement.textContent = "";
   }
-resetPointer() {
+  resetPointer() {
     this.pointer = 0;
     this.content = "";
   }
