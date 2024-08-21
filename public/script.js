@@ -93,7 +93,10 @@ async function handleCommand(cmd) {
 
   if (!commands.has(cmd)) return outputAnimator.print(`Command ${cmd} not found`)
 
-  outputAnimator.print(commands.get(cmd))
+  outputAnimator.clear()
+  const output = commands.get(cmd)
+  if (Array.isArray(output) || typeof output === 'string') outputAnimator.print(output)
+  else outputAnimator.print(output.content, output.options)
 }
 
 // print help command
