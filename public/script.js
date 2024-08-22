@@ -148,8 +148,11 @@ async function handleCommand(cmd) {
     return outputAnimator.print(`bash: ${cmd}: command not found`)
 
   outputAnimator.clear()
-  const output = commands.find(({ title }) => title == cmd).output
-  if (Array.isArray(output) || typeof output === 'string') outputAnimator.print(output)
+  const command = commands.find(({ title }) => title == cmd)
+  const output = command.output
+  
+  if (typeof output === 'string') outputAnimator.print(output)
+  else if (Array.isArray(output)) outputAnimator.printList(output)
   else outputAnimator.print(output.content, output.options)
 }
 
