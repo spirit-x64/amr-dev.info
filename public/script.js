@@ -73,14 +73,17 @@ class VersatileAnimator extends Animator {
       titleElement.classList.add("pressable")
     }
 
-    if (brief) {
-      const seperatorElement = document.createElement("td")
-      seperatorElement.textContent = seperator ?? SEPERATOR
-      lineElement.appendChild(seperatorElement)
+    const seperatorElement = document.createElement("td")
+    seperatorElement.textContent = seperator ?? SEPERATOR
+    lineElement.appendChild(seperatorElement)
 
-      const briefElement = document.createElement("td")
-      briefElement.textContent = brief
-      lineElement.appendChild(briefElement)
+    const briefElement = document.createElement("td")
+    briefElement.textContent = brief ?? " "
+    lineElement.appendChild(briefElement)
+
+    if (!brief) {
+      seperatorElement.classList.add("hidden")
+      briefElement.classList.add("hidden")
     }
   }
   async printList(list, options = {}) {
