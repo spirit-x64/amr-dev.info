@@ -69,7 +69,7 @@ class VersatileAnimator extends Animator {
     titleElement.textContent = title
     lineElement.appendChild(titleElement)
     if (link) {
-      titleElement.onclick = link
+      titleElement.onclick = typeof link == "string" ? () => window.open(link, '_blank') : link
       titleElement.classList.add("pressable")
     }
 
