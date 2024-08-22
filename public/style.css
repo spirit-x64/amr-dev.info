@@ -9,6 +9,10 @@ body {
   min-height: 100vh;
 }
 
+.list-container {
+  padding-inline: 1.5rem;
+}
+
 .output {
   padding: 10px;
   white-space: pre-wrap;
