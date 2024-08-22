@@ -10,6 +10,7 @@ body {
 }
 
 .list-container {
+  padding-top: 1rem;
   padding-inline: 1.5rem;
 }
 
