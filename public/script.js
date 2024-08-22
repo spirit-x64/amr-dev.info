@@ -1,3 +1,7 @@
+// NOTE THAT I WROTE THIS SCRIPT TO WORK NOT TO BE READ
+// Im irresposible of any attempt of reading this garbage
+// if u wanna copy just change the text here + HTML/CSS and u will be good
+
 const ASCII_ART = `  ______       _       _
  / _____)     (_)     (_)  _
 ( (____  ____  _  ____ _ _| |_
@@ -8,14 +12,27 @@ const ASCII_ART = `  ______       _       _
 const HELP_MESSAGE = "commands: (click to run)"
 const CURSOR = "|" // dosent matter in the current style
 const LINE_OUTPUT_DELAY = 100 //ms
-const CHAR_OUTPUT_DELAY = 50
-const SEPERATOR = " | "
+const CHAR_OUTPUT_DELAY = 50 //ms
+const SEPERATOR = " ⎯ "
 
-const commands = new Map();
-commands.set("contact", () => { });
-commands.set("projects", () => { });
-commands.set("scripts", () => { });
-commands.set("tech-stack", () => { });
+const commands = [
+  {
+    title: "tech-stack",
+    brief: "print a brief overview of the technologies I use"
+  },
+  {
+    title: "projects",
+    brief: "show my recent projects"
+  },
+  {
+    title: "scripts",
+    brief: "list some helpfull scripts and dotfiles I use"
+  },
+  {
+    title: "contact",
+    brief: "find how to reach me"
+  }
+]
 
 function sleep(ms) {
   return new Promise((res) => setTimeout(res, ms));
@@ -44,6 +61,39 @@ class VersatileAnimator extends Animator {
   constructor(targetElement, defaultDelay) {
     super(targetElement, defaultDelay);
   }
+  async defaultPrintListLine({ title, link, seperator, brief }, listElement) {
+    const lineElement = document.createElement("tr")
+    listElement.appendChild(lineElement)
+
+    const titleElement = document.createElement("td")
+    titleElement.textContent = title
+    lineElement.appendChild(titleElement)
+    if (link) {
+      titleElement.onclick = link
+      titleElement.classList.add("pressable")
+    }
+
+    if (brief) {
+      const seperatorElement = document.createElement("td")
+      seperatorElement.textContent = seperator ?? SEPERATOR
+      lineElement.appendChild(seperatorElement)
+
+      const briefElement = document.createElement("td")
+      briefElement.textContent = brief
+      lineElement.appendChild(briefElement)
+    }
+  }
+  async printList(list, options = {}) {
+    this.content = list
+    const listElement = document.createElement("div")
+    listElement.classList.add("list-container")
+    this.targetElement.appendChild(listElement)
+    while (this.same(this.content, list) && this.pointer < list.length) {
+      (options.printLine ?? this.defaultPrintListLine)(list[this.pointer], listElement, this)
+      this.pointer++
+      await sleep(options.delay ?? this.defaultDelay)
+    }
+  }
   async defaultPrintLine(line) {
     const lineElement = document.createElement("div")
     lineElement.textContent = line
@@ -53,7 +103,7 @@ class VersatileAnimator extends Animator {
     this.content = content
     const outputLines = typeof content == "string" ? content.split("\n") : content
     while (this.same(this.content, content) && this.pointer < outputLines.length) {
-      options.printLine ? options.printLine(outputLines[this.pointer], this.pointer) : this.defaultPrintLine(outputLines[this.pointer])
+      options.printLine ? options.printLine(outputLines[this.pointer], this) : this.defaultPrintLine(outputLines[this.pointer])
       this.pointer++
       await sleep(options.delay ?? this.defaultDelay)
     }
@@ -91,10 +141,11 @@ async function handleCommand(cmd) {
 
   await commandAnimator.print(cmd)
 
-  if (!commands.has(cmd)) return outputAnimator.print(`Command ${cmd} not found`)
+  if (!commands.some(({ title }) => title == cmd))
+    return outputAnimator.print(`bash: ${cmd}: command not found`)
 
   outputAnimator.clear()
-  const output = commands.get(cmd)
+  const output = commands.find(({ title }) => title == cmd).output
   if (Array.isArray(output) || typeof output === 'string') outputAnimator.print(output)
   else outputAnimator.print(output.content, output.options)
 }
@@ -105,25 +156,11 @@ async function handleCommand(cmd) {
   const helpOutputAnimator = new VersatileAnimator(document.querySelector(".help .output"), LINE_OUTPUT_DELAY)
 
   await helpCommandAnimator.print("lilspirit.info --help")
-  await helpOutputAnimator.print(ASCII_ART + "\n\n" + HELP_MESSAGE)
+  await helpOutputAnimator.print(ASCII_ART + "\n" + HELP_MESSAGE)
   helpOutputAnimator.resetPointer()
 
-  const commandsElement = document.createElement("div")
-  commandsElement.style.padding = "10px"
-  document.querySelector(".help .output").appendChild(commandsElement)
-  await helpOutputAnimator.print(Array.from(commands.keys()), {
-    printLine: (key, i) => {
-      const cmd = document.createElement("span")
-      cmd.classList.add("pressable")
-      cmd.textContent = key
-      cmd.onclick = () => handleCommand(key)
-      commandsElement.appendChild(cmd)
-
-      const seperator = document.createElement("span")
-      seperator.textContent = i + 1 >= commands.size ? " \n " : SEPERATOR
-      commandsElement.appendChild(seperator)
-    }
-  })
+  commands.forEach((cmd) => cmd.link = () => handleCommand(cmd.title))
+  await helpOutputAnimator.printList(commands)
 
   document.querySelector(".help .cursor").classList.add("hidden")
   document.querySelector(".run .prompt-user").classList.remove("hidden");
