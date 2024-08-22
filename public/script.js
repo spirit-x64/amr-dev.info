@@ -150,7 +150,10 @@ async function handleCommand(cmd) {
   outputAnimator.clear()
   const command = commands.find(({ title }) => title == cmd)
   const output = command.output
-  
+  if (command.description) {
+    await outputAnimator.print(command.description)
+    outputAnimator.resetPointer()
+  }
   if (typeof output === 'string') outputAnimator.print(output)
   else if (Array.isArray(output)) outputAnimator.printList(output)
   else outputAnimator.print(output.content, output.options)
