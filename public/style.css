@@ -9,10 +9,34 @@
   --list-element-title: #92EE00;
 }
 
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
+  font-weight: bold;
+  font-style: italic, oblique;
+}
+
 body {
   background: var(--background);
   color: var(--base);
-  font-family: Courier New, monospace;
+  font-family: "Computer Modern", monospace;
   margin: 0;
   display: flex;
   justify-content: center;
