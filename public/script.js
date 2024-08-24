@@ -66,6 +66,14 @@ function sleep(ms) {
   return new Promise((res) => setTimeout(res, ms));
 }
 
+function same(x, y) {
+  if (Array.isArray(x)) {
+    if (Array.isArray(y)) return x.every((v, i) => same(v, y[i]));
+    else return false
+  }
+  return x == y
+}
+
 class Animator {
   constructor(targetElement, defaultDelay = 50) {
     this.targetElement = targetElement;
@@ -120,7 +128,7 @@ class VersatileAnimator extends Animator {
     const listElement = document.createElement("div")
     listElement.classList.add("list-container")
     this.targetElement.appendChild(listElement)
-    while (this.same(this.content, list) && this.pointer < list.length) {
+    while (same(this.content, list) && this.pointer < list.length) {
       (options.printLine ?? this.defaultPrintListLine)(list[this.pointer], listElement, this)
       this.pointer++
       await sleep(options.delay ?? this.defaultDelay)
@@ -134,18 +142,11 @@ class VersatileAnimator extends Animator {
   async print(content, options = {}) {
     this.content = content
     const outputLines = typeof content == "string" ? content.split("\n") : content
-    while (this.same(this.content, content) && this.pointer < outputLines.length) {
+    while (same(this.content, content) && this.pointer < outputLines.length) {
       options.printLine ? options.printLine(outputLines[this.pointer], this) : this.defaultPrintLine(outputLines[this.pointer])
       this.pointer++
       await sleep(options.delay ?? this.defaultDelay)
     }
-  }
-  same(x, y) {
-    if (Array.isArray(x)) {
-      if (Array.isArray(y)) return x.every((v, i) => this.same(v, y[i]));
-      else return false
-    }
-    return x == y
   }
 }
 
