@@ -10,7 +10,6 @@ const ASCII_ART = `  ______       _       _
 (______/|  __/|_|_|   |_| \\___)
         |_|\n `
 const HELP_MESSAGE = "commands: (click to run)"
-const CURSOR = "|" // dosent matter in the current style
 const LINE_OUTPUT_DELAY = 100 //ms
 const CHAR_OUTPUT_DELAY = 50 //ms
 const SEPERATOR = " ⎯ "
