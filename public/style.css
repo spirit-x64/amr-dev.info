@@ -73,11 +73,13 @@ body {
 
 .working-dir {
   font-weight: bold;
+  font-size: 1.2rem;
   color: var(--prompt-working-dir)
 }
 
 .prompt-sign {
   font-weight: bold;
+  font-size: 1.2rem;
   color: var(--prompt-sign);
 }
 
