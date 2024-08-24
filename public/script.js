@@ -1,7 +1,3 @@
-// NOTE THAT I WROTE THIS SCRIPT TO WORK NOT TO BE READ
-// Im irresposible of any attempt of reading this garbage
-// if u wanna copy just change the text here + HTML/CSS and u will be good
-
 const ASCII_ART = `  ______       _       _
  / _____)     (_)     (_)  _
 ( (____  ____  _  ____ _ _| |_
@@ -10,8 +6,8 @@ const ASCII_ART = `  ______       _       _
 (______/|  __/|_|_|   |_| \\___)
         |_|\n `
 const HELP_MESSAGE = "commands: (click to run)"
-const LINE_OUTPUT_DELAY = 100 //ms
-const CHAR_OUTPUT_DELAY = 50 //ms
+const LINE_OUTPUT_DELAY = 100 // in ms
+const CHAR_OUTPUT_DELAY = 50 // in ms
 const SEPERATOR = " ⎯ "
 
 const commands = [
