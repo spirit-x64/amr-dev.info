@@ -65,6 +65,7 @@ class VersatileAnimator extends Animator {
     listElement.appendChild(lineElement)
 
     const titleElement = document.createElement("td")
+    titleElement.classList.add("list-element-title")
     titleElement.textContent = title
     lineElement.appendChild(titleElement)
     if (link) {

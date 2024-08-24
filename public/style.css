@@ -1,6 +1,17 @@
+:root {
+  --base: #ffffff;
+  --background: #131319;
+  --border: #1a1a23;
+  --prompt-user-and-host: #0066ff;
+  --prompt-working-dir: #0099ff;
+  --prompt-sign: #0099ff;
+  --prompt-cursor: #ffffff;
+  --list-element-title: #92EE00;
+}
+
 body {
-  background: #13131f;
-  color: #FFF;
+  background: var(--background);
+  color: var(--base);
   font-family: Courier New, monospace;
   margin: 0;
   display: flex;
@@ -23,7 +34,7 @@ body {
   min-height: 95vh;
   min-width: 95vw;
   padding: 1rem;
-  border: 2px solid #223;
+  border: 2px solid var(--border);
   box-sizing: border-box;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -33,24 +44,21 @@ body {
   font-weight: bold;
   font-size: 1.2rem;
   white-space: nowrap;
-  color: #a2e22e;
+  color: var(--prompt-user-and-host);
 }
 
 .working-dir {
   font-weight: bold;
-  color: #f92672
+  color: var(--prompt-working-dir)
 }
 
 .prompt-sign {
   font-weight: bold;
-  color: #f2777a;
+  color: var(--prompt-sign);
 }
 
 .pressable {
-  font-weight: bold;
-  margin: 0 5px;
-  text-shadow: 0 0 10px #f2777a;
-  color: #f2777a;
+  padding: 0 4px;
 }
 
 .pressable:hover {
@@ -58,8 +66,13 @@ body {
   cursor: pointer;
 }
 
+.list-element-title {
+  color: var(--list-element-title);
+  text-shadow: 0 0 10px #92EE00;
+}
+
 .command {
-  text-shadow: 0 0 10px #FFF;
+  text-shadow: 0 0 10px var(--base);
 }
 
 .hidden {
@@ -67,7 +80,7 @@ body {
 }
 
 .cursor {
-  background-color: #FFF;
+  background-color: var(--prompt-cursor);
   animation: blink 0.5s infinite;
 }
 
