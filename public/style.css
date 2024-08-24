@@ -1,42 +1,18 @@
 :root {
   --base: #ffffff;
-  --background: #131319;
-  --border: #1a1a23;
-  --prompt-user-and-host: #0066ff;
-  --prompt-working-dir: #0099ff;
-  --prompt-sign: #0099ff;
+  --background: #13131c;
+  --border: #1a1a29;
+  --prompt-user-and-host: #a2e22e;
+  --prompt-working-dir: #ff4455;
+  --prompt-sign: #ff6699;
   --prompt-cursor: #ffffff;
-  --list-element-title: #92EE00;
-}
-
-@font-face {
-  font-family: "Computer Modern";
-  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
-}
-
-@font-face {
-  font-family: "Computer Modern";
-  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: "Computer Modern";
-  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
-  font-style: italic, oblique;
-}
-
-@font-face {
-  font-family: "Computer Modern";
-  src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
-  font-weight: bold;
-  font-style: italic, oblique;
+  --list-element-title: #f26f6a;
 }
 
 body {
   background: var(--background);
   color: var(--base);
-  font-family: "Computer Modern", monospace;
+  font-family: 'Courier New', Courier, monospace;
   margin: 0;
   display: flex;
   justify-content: center;
