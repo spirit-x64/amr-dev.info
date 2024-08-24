@@ -70,7 +70,7 @@ body {
 
 .list-element-title {
   color: var(--list-element-title);
-  text-shadow: 0 0 10px #92EE00;
+  text-shadow: 0 0 10px var(--list-element-title);
 }
 
 .command {
