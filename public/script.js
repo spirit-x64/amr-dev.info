@@ -42,10 +42,6 @@ const commands = [
     ]
   },
   {
-    title: "scripts",
-    brief: "list some helpfull scripts and dotfiles I use"
-  },
-  {
     title: "contact",
     brief: "find how to reach me",
     description: "I'm mostly active on github, 𝕏 and instagram\nbut you might find different content on other platforms.",
