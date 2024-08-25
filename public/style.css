@@ -14,6 +14,12 @@
   src: url('fonts/Monocraft-ttf-otf/Monocraft.ttf');
 }
 
+@font-face {
+  font-family: 'Monocraft';
+  src: url('fonts/Monocraft-ttf-otf/weights/ttf/Monocraft-Bold.ttf');
+  font-weight: bold;
+}
+
 body {
   background: var(--background);
   color: var(--base);
