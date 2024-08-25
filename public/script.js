@@ -167,12 +167,15 @@ class CharAnimator extends Animator {
 
 const commandAnimator = new CharAnimator(document.querySelector(".run .command"), CHAR_OUTPUT_DELAY)
 const outputAnimator = new VersatileAnimator(document.querySelector(".run .output"), LINE_OUTPUT_DELAY)
+const printStack = []
 
 async function handleCommand(cmd) {
   commandAnimator.clear()
   outputAnimator.clear()
 
+  if (!printStack.some((c) => c == cmd)) printStack.push(cmd)
   await commandAnimator.print(cmd)
+  if (printStack.shift() != cmd) return
 
   if (!commands.some(({ title }) => title == cmd))
     return outputAnimator.print(`bash: ${cmd}: command not found`)
