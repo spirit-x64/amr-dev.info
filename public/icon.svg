@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- THIS FILE IS NOT SHIPPED WITH THE PRODUCT BUT PROVIDED FOR COMPLETENESS -->
+<!-- Copyright (c) 2024 Spirit <spirit@programmer.net> -->
+
+<svg width="512" height="512" viewBox="0 0 512 512" version="1.1" id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+   <g id="g9409" transform="matrix(1.4657958,0,0,1.4591717,-115.57918,-88.910708)" style="stroke-width:1">
+      <path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 159.99991,332.2458 h 192 L 390,189.9998 l -78.00009,62.246 -12,-82.246 -44,72.246 -44.00031,-72.246 -11.99969,82.246 -80,-62.246 z" />
+      <circle style="fill:#000000;fill-opacity:1;stroke-width:1" id="path7626" cx="115" cy="175" r="15" />
+      <circle style="fill:#000000;fill-opacity:1;stroke-width:1" id="circle7761" cx="210" cy="155" r="15" />
+      <circle style="fill:#000000;fill-opacity:1;stroke-width:1" id="circle9243" cx="300" cy="155" r="15" />
+      <circle style="fill:#000000;fill-opacity:1;stroke-width:1" id="circle9272" cx="392" cy="175" r="15" />
+   </g>
+</svg>
