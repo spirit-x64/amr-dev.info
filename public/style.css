@@ -9,10 +9,15 @@
   --list-element-title: #f26f6a;
 }
 
+@font-face {
+  font-family: 'Monocraft';
+  src: url('fonts/Monocraft-ttf-otf/Monocraft.ttf');
+}
+
 body {
   background: var(--background);
   color: var(--base);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Monocraft';
   margin: 0;
   display: flex;
   justify-content: center;
