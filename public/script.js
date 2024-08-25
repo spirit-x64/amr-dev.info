@@ -31,7 +31,7 @@ const commands = [
       {
         title: "spirit@programmer.net",
         link: "mailto:spirit@programmer.net",
-        brief: "For formal discussions, offers and updates"
+        brief: "For formal discussions and offers"
       },
       {
         title: "Discord server",
@@ -41,22 +41,22 @@ const commands = [
       {
         title: "𝕏 (Twitter)",
         link: "https://x.com/spirit_x64",
-        brief: "Random tweets and life updates, nothing to expect"
+        brief: "Life updates, nothing to expect"
       },
       {
         title: "Instagram",
         link: "https://instagram.com/spirit_x64",
-        brief: "I upload random shots to my story"
+        brief: "I share random shots to my story"
       },
       {
         title: "YouTube",
         link: "https://youtube.com/@spirit-dev",
-        brief: "The typical place for sharing video dev logs and trailers"
+        brief: "The typical place for dev logs"
       },
       {
         title: "GitHub",
         link: "https://github.com/spirit-x64",
-        brief: "Where my open sourced projects live"
+        brief: "Where open sourced projects live"
       }
     ]
   }
