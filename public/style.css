@@ -80,6 +80,7 @@ body {
 }
 
 .list-element-title {
+  padding: 0 4px;
   color: var(--list-element-title);
   text-shadow: 0 0 10px var(--list-element-title);
 }
