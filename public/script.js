@@ -13,7 +13,90 @@ const SEPERATOR = " ⎯ "
 const commands = [
   {
     title: "tech-stack",
-    brief: "print a brief overview of the technologies I use"
+    brief: "list few technologies I use",
+    description: "Not all but most of what i use in a daily basis",
+    output: [
+      {
+        title: "void-linux",
+        link: "https://voidlinux.org",
+        brief: "Minimalist Linux distribution"
+      },
+      {
+        title: "Node.js",
+        link: "https://nodejs.org",
+        brief: "JavaScript runtime for servers"
+      },
+      {
+        title: "GitHub",
+        link: "https://github.com",
+        brief: "Platform for hosting git repos"
+      },
+      {
+        title: "yt-dlp",
+        link: "https://github.com/yt-dlp/yt-dlp",
+        brief: "Feature rich YouTube downloader"
+      },
+      {
+        title: "OpenCL",
+        link: "https://opencv.org/opencl",
+        brief: "Cross-platform parallel computing"
+      },
+      {
+        title: "OpenGL",
+        link: "https://www.opengl.org",
+        brief: "Cross-platform 2D/3D graphics API"
+      },
+      {
+        title: "Godot",
+        link: "https://godotengine.org",
+        brief: "Free open source light game engine"
+      },
+      {
+        title: "Julia",
+        link: "https://julialang.org",
+        brief: "Highly optimized dynamic language"
+      },
+      {
+        title: "nginx",
+        link: "https://nginx.org",
+        brief: "Light reverse proxy and web-server"
+      },
+      {
+        title: "Bash",
+        link: "https://www.gnu.org/software/bash",
+        brief: "Shell to interact with GNU/Linux"
+      },
+      {
+        title: "Rust",
+        link: "https://www.rust-lang.org",
+        brief: "Performant memory-safe language"
+      },
+      {
+        title: "Git",
+        link: "https://git-scm.com",
+        brief: "Version control to track changes"
+      },
+      {
+        title: "Vim",
+        link: "https://www.vim.org",
+        brief: "Highly configurable text editor"
+      },
+      {
+        title: "EC2",
+        link: "https://aws.amazon.com/ec2",
+        brief: "Cloud computing service by AWS"
+      },
+      {
+        title: "SSH",
+        link: "https://openssh.com",
+        brief: "Protocol for remote computers"
+      },
+      {
+        title: "C",
+        link: "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf",
+        brief: "Simple general-purpose language"
+      },
+    ]
   },
   {
     title: "projects",
