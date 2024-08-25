@@ -17,7 +17,29 @@ const commands = [
   },
   {
     title: "projects",
-    brief: "show my recent projects"
+    brief: "show my recent projects",
+    description: "there are many projects that i couldn't adreess here\nbut here are my recent projects which i'm happy to share :)\nI hope you enjoy them",
+    output: [
+      {
+        title: "https://lilspirit.info",
+        link: "https://github.com/spirit-x64/lilspirit.info",
+        brief: "Portfolio with a terminal style"
+      },
+      {
+        title: "EventEmitter.jl",
+        link: "https://github.com/spirit-x64/EventEmitter.jl",
+        brief: "More than a EventEmitter.js clone"
+      },
+      {
+        title: "N-Shapes.jl",
+        link: "https://github.com/spirit-x64/NShapes.jl",
+        brief: "Advanced multi-dimensional shapes"
+      },
+      {
+        title: "OutLandish",
+        brief: "Survival game, still in early stages"
+      }
+    ]
   },
   {
     title: "scripts",
