@@ -104,7 +104,7 @@ const commands = [
     description: "there are many projects that i couldn't adreess here\nbut here are my recent projects which i'm happy to share :)\nI hope you enjoy them",
     output: [
       {
-        title: "https://lilspirit.info",
+        title: "lilspirit.info (open GitHub)",
         link: "https://github.com/spirit-x64/lilspirit.info",
         brief: "Portfolio with a terminal style"
       },
