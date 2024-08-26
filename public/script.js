@@ -200,7 +200,7 @@ class VersatileAnimator extends Animator {
   constructor(targetElement, defaultDelay) {
     super(targetElement, defaultDelay);
   }
-  async defaultPrintListLine({ title, link, seperator, brief }, listElement) {
+  async defaultPrintListLine({ title, link, seperator, brief }, listElement, { pointer }) {
     const lineElement = document.createElement("tr")
     listElement.appendChild(lineElement)
 
@@ -211,6 +211,7 @@ class VersatileAnimator extends Animator {
     if (link) {
       titleElement.onclick = typeof link == "string" ? () => window.open(link, '_blank') : link
       titleElement.classList.add("pressable")
+      titleElement.tabIndex = 0
     }
 
     const seperatorElement = document.createElement("td")
@@ -271,6 +272,8 @@ class CharAnimator extends Animator {
 const commandAnimator = new CharAnimator(document.querySelector(".run .command"), CHAR_OUTPUT_DELAY)
 const outputAnimator = new VersatileAnimator(document.querySelector(".run .output"), LINE_OUTPUT_DELAY)
 const printStack = []
+
+document.addEventListener("keydown", (e) => (["Space", "Enter"].includes(e.code)) && document.activeElement.click())
 
 async function handleCommand(cmd) {
   commandAnimator.clear()
