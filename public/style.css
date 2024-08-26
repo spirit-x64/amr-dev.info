@@ -10,20 +10,20 @@
 }
 
 @font-face {
-  font-family: 'IBM Plex Mono';
-  src: url('fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf');
+  font-family: "IBM Plex Mono";
+  src: url("fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf");
 }
 
 @font-face {
-  font-family: 'IBM Plex Mono';
-  src: url('fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf');
+  font-family: "IBM Plex Mono";
+  src: url("fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf");
   font-weight: bold;
 }
 
 :root {
   background: var(--background);
   color: var(--base);
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 body {
