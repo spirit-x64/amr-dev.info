@@ -26,6 +26,7 @@ setInterval(() => {
 	writeFileSync(uniqueViewsFilePath, JSON.stringify([...uniqueIPs]))
 }, 300000)
 
+app.set('trust proxy', true)
 app.use(compression())
 
 app.get('/', (req, res, next) => {
