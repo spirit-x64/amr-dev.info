@@ -31,7 +31,7 @@ app.use(compression())
 
 app.get('/', (req, res, next) => {
 	viewCount++
-	uniqueIPs.add(req.ip ?? req.connection.remoteAddress)
+	uniqueIPs.add(req.headers['x-forwarded-for'] || req.ip)
 	next()
 })
 
