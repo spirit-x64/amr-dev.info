@@ -40,7 +40,7 @@ app.use(express.static(join(__dirname, "public"), {
 }))
 
 app.get('/views', (req, res) => {
-	res.send(`Total views: ${viewCount} | \nUnique views: ${uniqueIPs.size} |`)
+	res.send(`Total views: ${viewCount} | Unique views: ${uniqueIPs.size}`)
 })
 
 app.listen(PORT, () => {
