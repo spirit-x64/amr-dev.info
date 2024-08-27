@@ -7,20 +7,30 @@ const { homedir } = require('os')
 const app = express()
 const PORT = process.env.PORT || 8080
 const viewsFilePath = join(homedir(), 'views')
+const uniqueViewsFilePath = join(homedir(), 'unique_views')
 
 let viewCount = 0
+let uniqueIPs = new Set()
 
-// Load existing view count if file exists
+// Load existing view counts if files exist
 if (existsSync(viewsFilePath)) {
-  viewCount = parseInt(readFileSync(viewsFilePath, 'utf8')) || 0
+	viewCount = parseInt(readFileSync(viewsFilePath, 'utf8')) || 0
+}
+if (existsSync(uniqueViewsFilePath)) {
+	uniqueIPs = new Set(JSON.parse(readFileSync(uniqueViewsFilePath, 'utf8')))
 }
 
-setInterval(() => writeFileSync(viewsFilePath, viewCount.toString()), 300000) // 5 min
+// Save counts every 5 minutes
+setInterval(() => {
+	writeFileSync(viewsFilePath, viewCount.toString())
+	writeFileSync(uniqueViewsFilePath, JSON.stringify([...uniqueIPs]))
+}, 300000)
 
 app.use(compression())
 
 app.get('/', (req, res, next) => {
 	viewCount++
+	uniqueIPs.add(req.ip ?? req.connection.remoteAddress)
 	next()
 })
 
@@ -29,7 +39,7 @@ app.use(express.static(join(__dirname, "public"), {
 }))
 
 app.get('/views', (req, res) => {
-	res.send(`Total views: ${viewCount}`)
+	res.send(`Total views: ${viewCount} | \nUnique views: ${uniqueIPs.size} |`)
 })
 
 app.listen(PORT, () => {
