@@ -16,27 +16,12 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .terminal {
   padding: 1rem;
-  margin: 1rem;
-  height: 90%;
-  overflow: auto;
-  border: 2px solid var(--border);
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.terminal-content {
-  flex-grow: 1;
 }
 
 .prompt-user {
@@ -101,9 +86,11 @@ body {
   0% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
