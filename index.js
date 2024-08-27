@@ -19,7 +19,7 @@ setInterval(() => writeFileSync(viewsFilePath, viewCount.toString()), 300000) //
 
 app.use(compression())
 
-app.use((req, res, next) => {
+app.get('/', (req, res, next) => {
 	viewCount++
 	next()
 })
