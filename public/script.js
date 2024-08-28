@@ -6,313 +6,154 @@
 // (______/|  __/|_|_|   |_| \___)
 //        |_|
 // 
-const ASCII_ART = "℗℗______℗℗℗℗℗℗℗_℗℗℗℗℗℗℗_℻℗/℗_____)℗℗℗℗℗(_)℗℗℗℗℗(_)℗℗_℻(℗(____℗℗____℗℗_℗℗____℗_℗_|℗|_℻℗\\____℗\\|℗℗_℗\\|℗|/℗___)℗(_℗℗℗_)℻℗_____)℗)℗|_|℗|℗|℗|℗℗℗|℗|℗|℗|_℻(______/|℗℗__/|_|_|℗℗℗|_|℗\\___)℻℗℗℗℗℗℗℗℗|_|℻℗".replace(/℗/g, " ").replace(/℻/g, "\n")
-const HELP_MESSAGE = "commands: (click to run)"
-const LINE_OUTPUT_DELAY = 100 // in ms
-const CHAR_OUTPUT_DELAY = 50 // in ms
-const SEPERATOR = " ⎯ "
+const HLP = "℗℗______℗℗℗℗℗℗℗_℗℗℗℗℗℗℗_℻℗/℗_____)℗℗℗℗℗(_)℗℗℗℗℗(_)℗℗_℻(℗(____℗℗____℗℗_℗℗____℗_℗_|℗|_℻℗\\____℗\\|℗℗_℗\\|℗|/℗___)℗(_℗℗℗_)℻℗_____)℗)℗|_|℗|℗|℗|℗℗℗|℗|℗|℗|_℻(______/|℗℗__/|_|_|℗℗℗|_|℗\\___)℻℗℗℗℗℗℗℗℗|_|℻℗℻commands: (click to run)".replace(/℗/g, " ").replace(/℻/g, "\n")
 
-const commands = [
-  {
-    title: "tech-stack",
-    brief: "list few technologies I use",
-    description: "Not all but most of what i use in a daily basis",
-    output: [
-      {
-        title: "void-linux",
-        link: "https://voidlinux.org",
-        brief: "Minimalist Linux distribution"
-      },
-      {
-        title: "Node.js",
-        link: "https://nodejs.org",
-        brief: "JavaScript runtime for servers"
-      },
-      {
-        title: "GitHub",
-        link: "https://github.com",
-        brief: "Platform for hosting git repos"
-      },
-      {
-        title: "yt-dlp",
-        link: "https://github.com/yt-dlp/yt-dlp",
-        brief: "Feature rich YouTube downloader"
-      },
-      {
-        title: "OpenCL",
-        link: "https://opencv.org/opencl",
-        brief: "Cross-platform parallel computing"
-      },
-      {
-        title: "OpenGL",
-        link: "https://www.opengl.org",
-        brief: "Cross-platform 2D/3D graphics API"
-      },
-      {
-        title: "Godot",
-        link: "https://godotengine.org",
-        brief: "Free open source light game engine"
-      },
-      {
-        title: "Julia",
-        link: "https://julialang.org",
-        brief: "Highly optimized dynamic language"
-      },
-      {
-        title: "nginx",
-        link: "https://nginx.org",
-        brief: "Light reverse proxy and web-server"
-      },
-      {
-        title: "Bash",
-        link: "https://www.gnu.org/software/bash",
-        brief: "Shell to interact with GNU/Linux"
-      },
-      {
-        title: "Rust",
-        link: "https://www.rust-lang.org",
-        brief: "Performant memory-safe language"
-      },
-      {
-        title: "Git",
-        link: "https://git-scm.com",
-        brief: "Version control to track changes"
-      },
-      {
-        title: "Vim",
-        link: "https://www.vim.org",
-        brief: "Highly configurable text editor"
-      },
-      {
-        title: "EC2",
-        link: "https://aws.amazon.com/ec2",
-        brief: "Cloud computing service by AWS"
-      },
-      {
-        title: "SSH",
-        link: "https://openssh.com",
-        brief: "Protocol for remote computers"
-      },
-      {
-        title: "C",
-        link: "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf",
-        brief: "Simple general-purpose language"
-      },
+// [[title, brief, description, output: [title, brief, link] | string], ...]
+const cmds = [
+  [
+    "tech-stack",
+    "list few technologies I use",
+    "Not all but most of what i use in a daily basis",
+    [
+      ["void-linux", "Minimalist Linux distribution", "https://voidlinux.org"],
+      ["Node.js", "JavaScript runtime for servers", "https://nodejs.org"],
+      ["GitHub", "Platform for hosting git repos", "https://github.com"],
+      ["yt-dlp", "Feature rich YouTube downloader", "https://github.com/yt-dlp/yt-dlp"],
+      ["OpenCL", "Cross-platform parallel computing", "https://opencv.org/opencl"],
+      ["OpenGL", "Cross-platform 2D/3D graphics API", "https://www.opengl.org"],
+      ["Godot", "Free open source light game engine", "https://godotengine.org"],
+      ["Julia", "Highly optimized dynamic language", "https://julialang.org"],
+      ["nginx", "Light reverse proxy and web-server", "https://nginx.org"],
+      ["Bash", "Shell to interact with GNU/Linux", "https://www.gnu.org/software/bash"],
+      ["Rust", "Performant memory-safe language", "https://www.rust-lang.org"],
+      ["Git", "Version control to track changes", "https://git-scm.com"],
+      ["Vim", "Highly configurable text editor", "https://www.vim.org"],
+      ["EC2", "Cloud computing service by AWS", "https://aws.amazon.com/ec2"],
+      ["SSH", "Protocol for remote computers", "https://openssh.com"],
+      ["C", "Simple general-purpose language", "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf"],
     ]
-  },
-  {
-    title: "projects",
-    brief: "show my recent projects",
-    description: "there are many projects that i couldn't adreess here\nbut here are my recent projects which i'm happy to share :)\nI hope you enjoy them",
-    output: [
-      {
-        title: "lilspirit.info (open GitHub)",
-        link: "https://github.com/spirit-x64/lilspirit.info",
-        brief: "Portfolio with a terminal style"
-      },
-      {
-        title: "EventEmitter.jl",
-        link: "https://github.com/spirit-x64/EventEmitter.jl",
-        brief: "More than a EventEmitter.js clone"
-      },
-      {
-        title: "N-Shapes.jl",
-        link: "https://github.com/spirit-x64/NShapes.jl",
-        brief: "Advanced multi-dimensional shapes"
-      },
-      {
-        title: "OutLandish",
-        brief: "Survival game, still in early stages"
-      }
+  ], [
+    "projects",
+    "show my recent projects",
+    "there are many projects that i couldn't adreess here\nbut here are my recent projects which i'm happy to share :)\nI hope you enjoy them",
+    [
+      ["lilspirit.info (open GitHub)", "Portfolio with a terminal style", "https://github.com/spirit-x64/lilspirit.info"],
+      ["EventEmitter.jl", "More than a EventEmitter.js clone", "https://github.com/spirit-x64/EventEmitter.jl"],
+      ["N-Shapes.jl", "Advanced multi-dimensional shapes", "https://github.com/spirit-x64/NShapes.jl"],
+      ["OutLandish", "Survival game, still in early stages"]
     ]
-  },
-  {
-    title: "contact",
-    brief: "find how to reach me",
-    description: "I'm mostly active on github, 𝕏 and instagram\nbut you might find different content on other platforms.",
-    output: [
-      {
-        title: "spirit@programmer.net",
-        link: "mailto:spirit@programmer.net",
-        brief: "For formal discussions and offers"
-      },
-      {
-        title: "Discord server",
-        link: "https://discord.lilspirit.info",
-        brief: "Games and game development chat"
-      },
-      {
-        title: "𝕏 (Twitter)",
-        link: "https://x.com/spirit_x64",
-        brief: "Life updates, nothing to expect"
-      },
-      {
-        title: "Instagram",
-        link: "https://instagram.com/spirit_x64",
-        brief: "I share random shots to my story"
-      },
-      {
-        title: "YouTube",
-        link: "https://youtube.com/@spirit-dev",
-        brief: "The typical place for dev logs"
-      },
-      {
-        title: "GitHub",
-        link: "https://github.com/spirit-x64",
-        brief: "Where open sourced projects live"
-      }
+  ], [
+    "contact",
+    "find how to reach me",
+    "I'm mostly active on github, 𝕏 and instagram\nbut you might find different content on other platforms.",
+    [
+      ["spirit@programmer.net", "For formal discussions and offers", "mailto:spirit@programmer.net"],
+      ["Discord server", "Games and game development chat", "https://discord.lilspirit.info"],
+      ["𝕏 (Twitter)", "Life updates, nothing to expect", "https://x.com/spirit_x64"],
+      ["Instagram", "I share random shots to my story", "https://instagram.com/spirit_x64"],
+      ["YouTube", "The typical place for dev logs", "https://youtube.com/@spirit-dev"],
+      ["GitHub", "Where open sourced projects live", "https://github.com/spirit-x64"]
     ]
-  }
+  ]
 ]
 
-function sleep(ms) {
-  return new Promise((res) => setTimeout(res, ms));
+sleep = ms => new Promise((r) => setTimeout(r, ms))
+// target, tag, txt, classList
+newElement = (t, tag, txt, cl) => {
+  const e = document.createElement(tag)
+  e.textContent = txt
+  cl && e.classList.add(cl)
+  t.appendChild(e)
+  return e
 }
 
-function same(x, y) {
-  if (Array.isArray(x)) {
-    if (Array.isArray(y)) return x.every((v, i) => same(v, y[i]));
-    else return false
-  }
-  return x == y
-}
+get = e => document.querySelector(e)
+
+hide = e => e.classList.add("hidden")
+
+isStr = x => typeof x == "string"
 
 class Animator {
-  constructor(targetElement, defaultDelay = 50) {
-    this.targetElement = targetElement;
-    this.defaultDelay = defaultDelay;
-    this.pointer = 0;
-    this.content = ""
+  constructor(t) {
+    this.target = t;
+    this.reset()
   }
-  async clear() {
-    this.pointer = 0;
-    this.content = "";
-    this.targetElement.replaceChildren();
-    this.targetElement.textContent = "";
+  reset() {
+    this.i = 0;
+    this.id = "";
   }
-  resetPointer() {
-    this.pointer = 0;
-    this.content = "";
+  clear() {
+    this.reset()
+    this.target.replaceChildren();
+    this.target.textContent = "";
   }
-}
+  // ln: [title, brief, link]
+  listItem(i, list) {
+    const line = newElement(list, "tr")
 
-class VersatileAnimator extends Animator {
-  constructor(targetElement, defaultDelay) {
-    super(targetElement, defaultDelay);
-  }
-  async defaultPrintListLine({ title, link, seperator, brief }, listElement, { pointer }) {
-    const lineElement = document.createElement("tr")
-    listElement.appendChild(lineElement)
+    const [t, s, b] = [[i[0], "list-title"], [" ⎯ "], [i[1] ?? " "]].map(([t, c]) => newElement(line, "td", t, c))
 
-    const titleElement = document.createElement("td")
-    titleElement.classList.add("list-element-title")
-    titleElement.textContent = title
-    lineElement.appendChild(titleElement)
-    if (link) {
-      titleElement.onclick = typeof link == "string" ? () => window.open(link, '_blank') : link
-      titleElement.classList.add("pressable")
-      titleElement.tabIndex = 0
+    if (i[2]) {
+      t.onclick = isStr(i[2]) ? () => window.open(i[2], '_blank') : i[2]
+      t.classList.add("pressable")
+      t.tabIndex = 0
     }
 
-    const seperatorElement = document.createElement("td")
-    seperatorElement.textContent = seperator ?? SEPERATOR
-    lineElement.appendChild(seperatorElement)
-
-    const briefElement = document.createElement("td")
-    briefElement.textContent = brief ?? " "
-    lineElement.appendChild(briefElement)
-
-    if (!brief) {
-      seperatorElement.classList.add("hidden")
-      briefElement.classList.add("hidden")
+    !i[1] && (hide(s) || hide(b))
+  }
+  // x: [[title, brief, link], ...] | String
+  async print(x, id) {
+    this.id = id ?? x
+    const l = isStr(x) ? x.split("\n") : newElement(this.target, "div", "", "list")
+    while (this.id == (id ?? x) && this.i < (isStr(x) ? l.length : x.length)) {
+      isStr(x) ? newElement(this.target, "div", l[this.i]) : this.listItem(x[this.i], l)
+      this.i++
+      await sleep(100)
     }
   }
-  async printList(list, options = {}) {
-    this.content = list
-    const listElement = document.createElement("div")
-    listElement.classList.add("list-container")
-    this.targetElement.appendChild(listElement)
-    while (same(this.content, list) && this.pointer < list.length) {
-      (options.printLine ?? this.defaultPrintListLine)(list[this.pointer], listElement, this)
-      this.pointer++
-      await sleep(options.delay ?? this.defaultDelay)
-    }
-  }
-  async defaultPrintLine(line) {
-    const lineElement = document.createElement("div")
-    lineElement.textContent = line
-    this.targetElement.appendChild(lineElement)
-  }
-  async print(content, options = {}) {
-    this.content = content
-    const outputLines = typeof content == "string" ? content.split("\n") : content
-    while (same(this.content, content) && this.pointer < outputLines.length) {
-      options.printLine ? options.printLine(outputLines[this.pointer], this) : this.defaultPrintLine(outputLines[this.pointer])
-      this.pointer++
-      await sleep(options.delay ?? this.defaultDelay)
+  async printChar(s) {
+    this.id = s
+    while (this.id == s && this.i < s.length) {
+      this.target.textContent += s.charAt(this.i)
+      this.i++
+      await sleep(50)
     }
   }
 }
 
-class CharAnimator extends Animator {
-  constructor(targetElement, defaultDelay) {
-    super(targetElement, defaultDelay);
-  }
-  async print(content, options = {}) {
-    this.content = content
-    while (this.content == content && this.pointer < content.length) {
-      const char = this.content.charAt(this.pointer)
-      this.targetElement.textContent += char
-      this.pointer++
-      await sleep(options.delay ?? this.defaultDelay)
-    }
-  }
-}
+const ca = new Animator(get(".run .cmd")) // Command Line Animator
+const ra = new Animator(get(".run .output")) // Output Animator
+const q = []
 
-const commandAnimator = new CharAnimator(document.querySelector(".run .command"), CHAR_OUTPUT_DELAY)
-const outputAnimator = new VersatileAnimator(document.querySelector(".run .output"), LINE_OUTPUT_DELAY)
-const printStack = []
+document.addEventListener("keydown", e => (["Space", "Enter"].includes(e.code)) && document.activeElement.click())
 
-document.addEventListener("keydown", (e) => (["Space", "Enter"].includes(e.code)) && document.activeElement.click())
+async function run(cmd) {
+  ca.clear()
+  ra.clear()
 
-async function handleCommand(cmd) {
-  commandAnimator.clear()
-  outputAnimator.clear()
+  q.some(c => c == cmd) || q.push(cmd)
+  await ca.printChar(cmd)
+  if (q.shift() != cmd) return
 
-  if (!printStack.some((c) => c == cmd)) printStack.push(cmd)
-  await commandAnimator.print(cmd)
-  if (printStack.shift() != cmd) return
+  ra.clear()
+  if (!cmds.some(c => c[0] == cmd)) return ra.print(`bash: ${cmd}: command not found`)
 
-  if (!commands.some(({ title }) => title == cmd))
-    return outputAnimator.print(`bash: ${cmd}: command not found`)
-
-  outputAnimator.clear()
-  const command = commands.find(({ title }) => title == cmd)
-  const output = command.output
-  if (command.description) {
-    await outputAnimator.print(command.description)
-    outputAnimator.resetPointer()
-  }
-  if (typeof output === 'string') outputAnimator.print(output)
-  else if (Array.isArray(output)) outputAnimator.printList(output)
-  else outputAnimator.print(output.content, output.options)
+  const c = cmds.find(c => c[0] == cmd)
+  c[2] && (await ra.print(c[2]) || ra.reset())
+  ra.print(c[3], cmd)
 }
 
 // print help command
 (async () => {
-  const helpCommandAnimator = new CharAnimator(document.querySelector(".help .command"), CHAR_OUTPUT_DELAY)
-  const helpOutputAnimator = new VersatileAnimator(document.querySelector(".help .output"), LINE_OUTPUT_DELAY)
+  const a = new Animator(get(".help .output"))
 
-  await helpCommandAnimator.print("lilspirit.info --help")
-  await helpOutputAnimator.print(ASCII_ART + "\n" + HELP_MESSAGE)
-  helpOutputAnimator.resetPointer()
+  await (new Animator(get(".help .cmd"))).printChar("lilspirit.info --help")
+  await a.print(HLP)
+  a.reset()
 
-  commands.forEach((cmd) => cmd.link = () => handleCommand(cmd.title))
-  await helpOutputAnimator.printList(commands)
+  await a.print(cmds.map(c => [c[0], c[1], () => run(c[0])]))
 
-  document.querySelector(".help .cursor").classList.add("hidden")
-  document.querySelector(".run .prompt-user").classList.remove("hidden");
-  document.querySelector(".run .working-dir").classList.remove("hidden");
-  document.querySelector(".run .prompt-sign").classList.remove("hidden");
-  document.querySelector(".run .cursor").classList.remove("hidden")
+  hide(get(".help .cursor"));
+
+  [".run .user", ".run .pwd", ".run .cursor"].map(e => get(e).classList.remove("hidden"))
 })()
