@@ -24,7 +24,7 @@
 }
 
 .cmd {
-  text-shadow: 0 0 0.5rem #fff;
+  text-shadow: 0 0 0.5rem;
 }
 
 .output {
@@ -45,7 +45,7 @@
   font-size: 1.1rem;
   padding: 6px;
   color: #f67;
-  text-shadow: 0 0 0.5rem #f67;
+  text-shadow: 0 0 0.5rem;
 }
 
 .hidden {
