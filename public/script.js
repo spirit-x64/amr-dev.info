@@ -12,25 +12,16 @@ const HLP = "℗℗______℗℗℗℗℗℗℗_℗℗℗℗℗℗℗_℻℗/℗_
 const cmds = [
   [
     "tech-stack",
-    "list few technologies I use",
-    "Not all but most of what i use in a daily basis",
+    "List some technologies i use",
+    "My current environment is a stripped Windows 10 for gaming and casual use\nvoid-linux on WSL for development, testing and advanced use",
     [
-      ["void-linux", "Minimalist Linux distribution", "https://voidlinux.org"],
-      ["Node.js", "JavaScript runtime for servers", "https://nodejs.org"],
-      ["GitHub", "Platform for hosting git repos", "https://github.com"],
-      ["yt-dlp", "Feature rich YouTube downloader", "https://github.com/yt-dlp/yt-dlp"],
-      ["OpenCL", "Cross-platform parallel computing", "https://opencv.org/opencl"],
+      ["void-linux", "Robust minimalist Linux distribution", "https://voidlinux.org"],
+      ["Node.js", "JavaScript runtime for web-servers", "https://nodejs.org"],
       ["OpenGL", "Cross-platform 2D/3D graphics API", "https://www.opengl.org"],
       ["Godot", "Free open source light game engine", "https://godotengine.org"],
       ["Julia", "Highly optimized dynamic language", "https://julialang.org"],
-      ["nginx", "Light reverse proxy and web-server", "https://nginx.org"],
       ["Bash", "Shell to interact with GNU/Linux", "https://www.gnu.org/software/bash"],
-      ["Rust", "Performant memory-safe language", "https://www.rust-lang.org"],
       ["Git", "Version control to track changes", "https://git-scm.com"],
-      ["Vim", "Highly configurable text editor", "https://www.vim.org"],
-      ["EC2", "Cloud computing service by AWS", "https://aws.amazon.com/ec2"],
-      ["SSH", "Protocol for remote computers", "https://openssh.com"],
-      ["C", "Simple general-purpose language", "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf"],
     ]
   ], [
     "projects",
