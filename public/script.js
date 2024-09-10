@@ -12,36 +12,36 @@ const HLP = "℗℗______℗℗℗℗℗℗℗_℗℗℗℗℗℗℗_℻℗/℗_
 const cmds = [
   [
     "tech-stack",
-    "List some technologies i use",
-    "My current environment is a stripped Windows 10 for gaming and casual use\nvoid-linux on WSL for development, testing and advanced use",
+    "List my preferred technologies",
+    "My dev setup: Windows 10 for gaming, void-linux on WSL for coding.\nFocused on performance, flexibility, and open-source tools.",
     [
       ["void-linux", "Robust minimalist Linux distribution", "https://voidlinux.org"],
       ["Node.js", "JavaScript runtime for web-servers", "https://nodejs.org"],
       ["OpenGL", "Cross-platform 2D/3D graphics API", "https://www.opengl.org"],
       ["Godot", "Free open source light game engine", "https://godotengine.org"],
       ["Julia", "Highly optimized dynamic language", "https://julialang.org"],
-      ["Bash", "Shell to interact with GNU/Linux", "https://www.gnu.org/software/bash"],
-      ["Git", "Version control to track changes", "https://git-scm.com"],
+      ["Bash", "Powerful Unix shell and scripting", "https://www.gnu.org/software/bash"],
+      ["Git", "Distributed version control system", "https://git-scm.com"],
     ]
   ], [
     "projects",
-    "show my recent projects",
-    "there are many projects that i couldn't adreess here\nbut here are my recent projects which i'm happy to share :)\nI hope you enjoy them",
+    "Showcase recent developments",
+    "A selection of my latest projects. Each represents a unique\nchallenge and development experience. Explore and enjoy!",
     [
-      ["lilspirit.info (open GitHub)", "Portfolio with a terminal style", "https://github.com/spirit-x64/lilspirit.info"],
-      ["EventEmitter.jl", "More than a EventEmitter.js clone", "https://github.com/spirit-x64/EventEmitter.jl"],
-      ["N-Shapes.jl", "Advanced multi-dimensional shapes", "https://github.com/spirit-x64/NShapes.jl"],
-      ["OutLandish", "Survival game, still in early stages"]
+      ["EventEmitter.jl", "Julia event handling system", "https://github.com/spirit-x64/EventEmitter.jl"],
+      ["lilspirit.info", "Terminal-style portfolio website", "https://github.com/spirit-x64/lilspirit.info"],
+      ["N-Shapes.jl", "Advanced multi-D shape manipulation", "https://github.com/spirit-x64/NShapes.jl"],
+      ["OutLandish", "Survival game, still in early stages :3"]
     ]
   ], [
     "contact",
-    "find how to reach me",
-    "I'm mostly active on github, 𝕏 and instagram\nbut you might find different content on other platforms.",
+    "Connect with me online",
+    "Find me on various platforms. Each offers a different perspective\non my work and interests. Feel free to reach out :)",
     [
-      ["spirit@programmer.net", "For formal discussions and offers", "mailto:spirit@programmer.net"],
+      ["spirit@programmer.net", "Professional inquiries and offers", "mailto:spirit@programmer.net"],
       ["Discord server", "Games and game development chat", "https://discord.lilspirit.info"],
-      ["𝕏 (Twitter)", "Life updates, nothing to expect", "https://x.com/spirit_x64"],
-      ["Instagram", "I share random shots to my story", "https://instagram.com/spirit_x64"],
+      ["𝕏 (Twitter)", "Casual life updates and memes", "https://x.com/spirit_x64"],
+      ["Instagram", "Visual snippets of my world :0", "https://instagram.com/spirit_x64"],
       ["YouTube", "The typical place for dev logs", "https://youtube.com/@spirit-dev"],
       ["GitHub", "Where open sourced projects live", "https://github.com/spirit-x64"]
     ]
