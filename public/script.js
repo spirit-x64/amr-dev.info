@@ -6,7 +6,10 @@
 // (______/|  __/|_|_|   |_| \___)
 //        |_|
 // 
-const HLP = "℗℗______℗℗℗℗℗℗℗_℗℗℗℗℗℗℗_℻℗/℗_____)℗℗℗℗℗(_)℗℗℗℗℗(_)℗℗_℻(℗(____℗℗____℗℗_℗℗____℗_℗_|℗|_℻℗\\____℗\\|℗℗_℗\\|℗|/℗___)℗(_℗℗℗_)℻℗_____)℗)℗|_|℗|℗|℗|℗℗℗|℗|℗|℗|_℻(______/|℗℗__/|_|_|℗℗℗|_|℗\\___)℻℗℗℗℗℗℗℗℗|_|℻℗℻commands: (click to run)".replace(/℗/g, " ").replace(/℻/g, "\n")
+const HLP = "℗℗______℗℗℗℗℗℗℗_℗℗℗℗℗℗℗_℻℗/℗_____)℗℗℗℗℗(_)℗℗℗℗℗(_)℗℗_℻(℗(____℗℗____℗℗_℗℗____℗_℗_|℗|_℻℗\\____℗\\|℗℗_℗\\|℗|/℗___)℗(_℗℗℗_)℻℗_____)℗)℗|_|℗|℗|℗|℗℗℗|℗|℗|℗|_℻(______/|℗℗__/|_|_|℗℗℗|_|℗\\___)℻℗℗℗℗℗℗℗℗|_|℻℗℻"
+  .concat("℻℗℻Hello! I'm Amr :3℻a passionate game developer and software engineer.℻I specialize in crafting efficient and performant systems.℻My journey in tech is driven by curiosity and ecstasy for development.℻℗")
+  .concat("℻℗℻commands: (click to run)")
+  .replace(/℗/g, " ").replace(/℻/g, "\n")
 
 // [[title, brief, description, output: [title, brief, link] | string], ...]
 const cmds = [
