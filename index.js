@@ -6,31 +6,31 @@ const { homedir } = require('os')
 
 const app = express()
 const PORT = process.env.PORT || 8080
-const viewsFilePath = join(homedir(), 'views')
-const uniqueViewsFilePath = join(homedir(), 'unique_views')
+const visitsFilePath = join(homedir(), 'visits')
+const visitorsFilePath = join(homedir(), 'visitors')
 
-let viewCount = 0
+let visitCount = 0
 let uniqueIPs = new Set()
 
-// Load existing view counts if files exist
-if (existsSync(viewsFilePath)) {
-	viewCount = parseInt(readFileSync(viewsFilePath, 'utf8')) || 0
+// Load existing visit counts if files exist
+if (existsSync(visitsFilePath)) {
+	visitCount = parseInt(readFileSync(visitsFilePath, 'utf8')) || 0
 }
-if (existsSync(uniqueViewsFilePath)) {
-	uniqueIPs = new Set(JSON.parse(readFileSync(uniqueViewsFilePath, 'utf8')))
+if (existsSync(visitorsFilePath)) {
+	uniqueIPs = new Set(JSON.parse(readFileSync(visitorsFilePath, 'utf8')))
 }
 
 // Save counts every 5 minutes
 setInterval(() => {
-	writeFileSync(viewsFilePath, viewCount.toString())
-	writeFileSync(uniqueViewsFilePath, JSON.stringify([...uniqueIPs]))
+	writeFileSync(visitsFilePath, visitCount.toString())
+	writeFileSync(visitorsFilePath, JSON.stringify([...uniqueIPs]))
 }, 300000)
 
 app.set('trust proxy', true)
 app.use(compression())
 
 app.get('/', (req, res, next) => {
-	viewCount++
+	visitCount++
 	uniqueIPs.add(req.headers['x-forwarded-for'] || req.ip)
 	next()
 })
@@ -40,7 +40,15 @@ app.use(express.static(join(__dirname, "public"), {
 }))
 
 app.get('/views', (req, res) => {
-	res.send(`Total views: ${viewCount} | Unique views: ${uniqueIPs.size}`)
+	res.send(`Total visits: ${visitCount} | Unique visitors: ${uniqueIPs.size}`)
+})
+
+app.get('/visits', (req, res) => {
+	res.send(visitCount)
+})
+
+app.get('/visitors', (req, res) => {
+	res.send(uniqueIPs.size)
 })
 
 app.listen(PORT, () => {
