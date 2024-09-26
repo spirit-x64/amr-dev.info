@@ -40,15 +40,15 @@ app.use(express.static(join(__dirname, "public"), {
 }))
 
 app.get('/views', (req, res) => {
-	res.send(`Total visits: ${visitCount} | Unique visitors: ${uniqueIPs.size}`)
+	res.send(`Total visits: ${visitCount} | Unique visitors: ${uniqueIPs.size} | back to site: <a href="https://lilspirit.info">https://lilspirit.info</a>`)
 })
 
 app.get('/visits', (req, res) => {
-	res.send(visitCount)
+	res.send('' + visitCount)
 })
 
 app.get('/visitors', (req, res) => {
-	res.send(uniqueIPs.size)
+	res.send('' + uniqueIPs.size)
 })
 
 app.listen(PORT, () => {
