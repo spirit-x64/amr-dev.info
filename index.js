@@ -40,7 +40,7 @@ app.use(express.static(join(__dirname, "public"), {
 }))
 
 app.get('/views', (req, res) => {
-	res.send(`Total visits: ${visitCount} | Unique visitors: ${uniqueIPs.size} | back to site: <a href="https://lilspirit.info">https://lilspirit.info</a>`)
+	res.send(`Total visits: ${visitCount} | Unique visitors: ${uniqueIPs.size} | back to site: <a href="https://amr-dev.info">amr-dev.info</a>`)
 })
 
 app.get('/visits', (req, res) => {

@@ -1,7 +1,7 @@
 {
-  "name": "lilspirit.info",
+  "name": "amr-dev.info",
   "version": "1.0.0",
-  "description": "Node js express app to run lilspirit.info website",
+  "description": "Node js express app to run amr-dev.info website",
   "main": "index.js",
   "scripts": {
     "start": "npm ci; node index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spirit-x64/lilspirit.info.git"
+    "url": "git+https://github.com/spirit-x64/amr-dev.info.git"
   },
   "keywords": [
     "node",
@@ -22,9 +22,9 @@
   "author": "Spirit <spirit@programmer.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/spirit-x64/lilspirit.info/issues"
+    "url": "https://github.com/spirit-x64/amr-dev.info/issues"
   },
-  "homepage": "https://github.com/spirit-x64/lilspirit.info#readme",
+  "homepage": "https://github.com/spirit-x64/amr-dev.info#readme",
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.19.2"

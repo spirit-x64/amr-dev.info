@@ -32,7 +32,7 @@ const cmds = [
     "A selection of my latest projects. Each represents a unique\nchallenge and development experience. Explore and enjoy!",
     [
       ["EventEmitter.jl", "Julia event handling system", "https://github.com/spirit-x64/EventEmitter.jl"],
-      ["lilspirit.info", "Terminal-style portfolio website", "https://github.com/spirit-x64/lilspirit.info"],
+      ["amr-dev.info", "Terminal-style portfolio website", "https://github.com/spirit-x64/amr-dev.info"],
       ["N-Shapes.jl", "Advanced multi-D shape manipulation", "https://github.com/spirit-x64/NShapes.jl"],
       ["OutLandish", "Survival game, still in early stages :3"]
     ]
@@ -42,10 +42,10 @@ const cmds = [
     "Find me on various platforms. Each offers a different perspective\non my work and interests. Feel free to reach out :)",
     [
       ["spirit@programmer.net", "Professional inquiries and offers", "mailto:spirit@programmer.net"],
-      ["Discord server", "Games and game development chat", "https://discord.lilspirit.info"],
+      ["Discord server", "Games and game development chat", "https://discord.amr-dev.info"],
       ["𝕏 (Twitter)", "Casual life updates and memes", "https://x.com/spirit_x64"],
       ["Instagram", "Visual snippets of my world :0", "https://instagram.com/spirit_x64"],
-      ["YouTube", "The typical place for dev logs", "https://youtube.com/@spirit-dev"],
+      ["YouTube", "The typical place for dev logs", "https://youtube.com/@spirit-DEV"],
       ["GitHub", "Where open sourced projects live", "https://github.com/spirit-x64"]
     ]
   ]
@@ -141,7 +141,7 @@ async function run(cmd) {
 (async () => {
   const a = new Animator(get(".help .output"))
 
-  await (new Animator(get(".help .cmd"))).printChar("lilspirit.info --help")
+  await (new Animator(get(".help .cmd"))).printChar("amr-dev.info --help")
   await a.print(HLP)
   a.reset()
 
